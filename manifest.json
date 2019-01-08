@@ -1,0 +1,27 @@
+{
+	"name": "抢火车票",
+	"version": "3.2",
+	"manifest_version": 2,
+
+	"description": "抢火车票",
+
+	"permissions": [
+		"https://kyfw.12306.cn/",
+		"tabs",
+		"declarativeContent"
+	],
+	"background": {
+		"scripts": ["jquery.min.js","background.js"]
+	},
+  
+	"content_scripts": [{
+		"matches": ["https://kyfw.12306.cn/otn/leftTicket/init*"],
+		"js": ["jquery.min.js","extra.js","train_ticket.js"]
+	},{
+		"matches": ["https://kyfw.12306.cn/otn/confirmPassenger/*"],
+		"js": ["jquery.min.js","extra.js","train_ok_sound.js"]
+	},{
+		"matches": ["https://kyfw.12306.cn/otn/view/index.html"],
+		"js": ["jquery.min.js","extra.js","train_login.js"]
+	}]
+}
